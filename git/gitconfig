@@ -1,0 +1,31 @@
+[user]
+  name = Paulo Bortolotti
+  email = bortolotti.paulo@gmail.com
+
+[alias]
+  # checkout
+  co = checkout
+  nb = checkout -b
+  # commit
+  cm = commit -m
+  cam = commit -am
+  ammend = commit --ammend --all
+  undocommit = reset HEAD~
+  # clone
+  sclone = clone --depth=1
+  # log
+  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  # diff
+  df = diff --color --color-words --abbrev
+  # status
+  s = status
+  # Show the diff between the latest commit and the current state
+  d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+
+[log]
+  date = relative
+
+[push]
+  default = current
+  followTags = true
