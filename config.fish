@@ -41,12 +41,6 @@ set -gx fish_prompt_pwd_dir_length 2
 # FZF
 set -gx FZF_LEGACY_KEYBINDINGS 0
 
-# Rancher
-set -gx RANCHER_URL "http://172.25.20.11:8080"
-set -gx RANCHER_ACCESS_KEY "9F31BD2844D3483235AC"
-set -gx RANCHER_SECRET_KEY "7Susvpcw5VBKEMfDtRLpQnuvSBGcXeJ7VVgmZem5"
-set -gx RANCHER_ENVIRONMENT "1a112"
-
 # Go
 set -gx GOROOT "/usr/local/go"
 set -gx GOPATH "$HOME/Development/gowork"
