@@ -110,8 +110,8 @@ if has('nvim')
     " install the neovim package for these binaries separately like this for
     " example:
     " pip3.6 install -U neovim
-    let g:python_host_prog = '/usr/bin/python2'
-    let g:python3_host_prog = '/usr/bin/python3'
+    let g:python_host_prog = '/home/phbortolotti/.pyenv/versions/2.7.15/envs/python-2.7.15/bin/python'
+    let g:python3_host_prog = '/home/phbortolotti/.pyenv/versions/3.6.5/envs/python-3.6.5/bin/python'
 endif
 
 " Enable mouse if possible
@@ -407,6 +407,11 @@ nnoremap <leader>w :Bclose<cr>
 "----------------------------------------------
 " Open ack
 nnoremap <leader>a :Ack!<space>
+
+" Use Ag
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 "----------------------------------------------
 " Plugin: neomake/neomake
