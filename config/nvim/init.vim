@@ -36,8 +36,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
-Plug 'morhetz/gruvbox'
-Plug 'sjl/badwolf'
+Plug 'thalesmello/webcomplete.vim'
 "Plug 'w0rp/ale'
 
 " Vim only plugins
@@ -71,6 +70,8 @@ Plug 'zimbatm/haproxy.vim'                     " HAProxy syntax highlighting
 
 " Colorschemes
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'morhetz/gruvbox'
+Plug 'sjl/badwolf'
 
 call plug#end()
 
@@ -110,8 +111,8 @@ if has('nvim')
     " install the neovim package for these binaries separately like this for
     " example:
     " pip3.6 install -U neovim
-    let g:python_host_prog = '/home/phbortolotti/.pyenv/versions/2.7.15/envs/python-2.7.15/bin/python'
-    let g:python3_host_prog = '/home/phbortolotti/.pyenv/versions/3.6.5/envs/python-3.6.5/bin/python'
+    let g:python_host_prog = '/home/phbortolotti/.pyenv/versions/2.7.15/envs/python2.7.15/bin/python'
+    let g:python3_host_prog = '/home/phbortolotti/.pyenv/versions/3.6.5/envs/python3.6.5/bin/python'
 endif
 
 " Enable mouse if possible
@@ -133,6 +134,16 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Center the screen quickly
 nnoremap <space> zz
+
+" Disable the blinking cursor
+set gcr=a:blinkon0
+
+" Scrolloff
+set scrolloff=3
+
+" Edit and load vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "----------------------------------------------
 " Colors
@@ -172,10 +183,10 @@ nnoremap N Nzzzv
 " Navigation
 "----------------------------------------------
 " Disable arrow keys
-" noremap <Up> <NOP>
-" noremap <Down> <NOP>
-" noremap <Left> <NOP>
-" noremap <Right> <NOP>
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 
 " Move between buffers with Shift + arrow key...
 nnoremap <S-Left> :bprevious<cr>
@@ -251,6 +262,18 @@ function! BookmarkUnmapKeys()
 endfunction
 autocmd BufEnter * :call BookmarkMapKeys()
 autocmd BufEnter NERD_tree_* :call BookmarkUnmapKeys()
+
+"----------------------------------------------
+" Plugin: tpope/vim-fugitive
+"----------------------------------------------
+noremap <Leader>ga :Gwrite<CR>
+noremap <Leader>gc :Gcommit<CR>
+noremap <Leader>gsh :Gpush<CR>
+noremap <Leader>gll :Gpull<CR>
+noremap <Leader>gs :Gstatus<CR>
+noremap <Leader>gb :Gblame<CR>
+noremap <Leader>gd :Gvdiff<CR>
+noremap <Leader>gr :Gremove<CR>
 
 "----------------------------------------------
 " Plugin: Shougo/deoplete.nvim
