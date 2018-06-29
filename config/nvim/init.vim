@@ -26,7 +26,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-signify'
 Plug 'mileszs/ack.vim'
-Plug 'neomake/neomake'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdcommenter'
@@ -37,7 +36,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
 Plug 'thalesmello/webcomplete.vim'
-"Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 
 " Vim only plugins
 if !has('nvim')
@@ -380,6 +379,28 @@ nnoremap <c-p> :FZF<cr>
 " Add shortcut for toggling the tag bar
 nnoremap <F3> :TagbarToggle<cr>
 
+"----------------------------------------------
+" Plugin: w0rp/ale
+"----------------------------------------------
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'python': ['flake8'],
+\   'go': ['go', 'gofmt', 'gometalinter']
+\}
+
+nmap <silent> <leader>a <Plug>(ale_next_wrap)
+
+" Disabling highlighting
+let g:ale_set_highlights = 0
+
+" Only run linting when saving the file
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+
+" Lint sign
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '⚠'
+
 " Language: Go
 " Tagbar configuration for Golang
 let g:tagbar_type_go = {
@@ -429,25 +450,12 @@ nnoremap <leader>w :Bclose<cr>
 " Plugin: mileszs/ack.vim
 "----------------------------------------------
 " Open ack
-nnoremap <leader>a :Ack!<space>
+nnoremap <c-f> :Ack!<space>
 
 " Use Ag
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-
-"----------------------------------------------
-" Plugin: neomake/neomake
-"----------------------------------------------
-" Configure signs.
-let g:neomake_error_sign   = {'text': '✖', 'texthl': 'NeomakeErrorSign'}
-let g:neomake_warning_sign = {'text': '∆', 'texthl': 'NeomakeWarningSign'}
-let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
-let g:neomake_info_sign    = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
-
-" Configure trigger
-call neomake#configure#automake('nw', 750)
-
 
 "----------------------------------------------
 " Plugin: scrooloose/nerdtree
@@ -599,30 +607,6 @@ let g:go_metalinter_enabled = [
 " Set whether the JSON tags should be snakecase or camelcase.
 let g:go_addtags_transform = "snakecase"
 
-" neomake configuration for Go.
-let g:neomake_go_enabled_makers = [ 'go', 'gometalinter' ]
-let g:neomake_go_gometalinter_maker = {
-  \ 'args': [
-  \   '--tests',
-  \   '--enable-gc',
-  \   '--concurrency=3',
-  \   '--fast',
-  \   '-D', 'aligncheck',
-  \   '-D', 'dupl',
-  \   '-D', 'gocyclo',
-  \   '-D', 'gotype',
-  \   '-E', 'misspell',
-  \   '-E', 'unused',
-  \   '%:p:h',
-  \ ],
-  \ 'append_file': 0,
-  \ 'errorformat':
-  \   '%E%f:%l:%c:%trror: %m,' .
-  \   '%W%f:%l:%c:%tarning: %m,' .
-  \   '%E%f:%l::%trror: %m,' .
-  \   '%W%f:%l::%tarning: %m'
-  \ }
-
 "----------------------------------------------
 " Language: apiblueprint
 "----------------------------------------------
@@ -750,9 +734,6 @@ au FileType ruby set expandtab
 au FileType ruby set shiftwidth=2
 au FileType ruby set softtabstop=2
 au FileType ruby set tabstop=2
-
-" Enable neomake for linting.
-"au FileType ruby autocmd BufWritePost * Neomake
 
 "----------------------------------------------
 " Language: SQL
