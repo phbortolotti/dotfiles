@@ -28,12 +28,13 @@ set -g theme_display_docker_machine no
 set -g theme_display_vi yes
 set -g theme_display_date no
 set -g theme_display_cmd_duration yes
-set -g theme_nerd_fonts yes
 set -g theme_show_exit_status yes
 set -g theme_display_virtualenv no
 set -g default_user your_normal_user
 set -g theme_color_scheme gruvbox
 set -g fish_prompt_pwd_dir_length 2
+set -g theme_display_git_master_branch yes
+set -g theme_nerd_fonts yes
 
 # FZF
 set -gx FZF_LEGACY_KEYBINDINGS 0
@@ -57,6 +58,10 @@ test -d "$RBENV_ROOT/bin"; and set PATH "$RBENV_ROOT/bin" $PATH
 # Nodenv
 set -gx NODENV_ROOT "$HOME/.nodenv"
 test -d "$NODENV_ROOT/bin"; and set PATH "$NODENV_ROOT/bin" $PATH
+
+# Java
+set -gx JAVA_HOME "/usr/lib/jdk-oracle"
+test -d "$JAVA_HOME/bin"; and set PATH "$JAVA_HOME/bin" $PATH
 
 # Aliases
 function ef; eval $EDITOR ~/.config/fish/config.fish; end

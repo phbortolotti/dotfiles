@@ -37,6 +37,7 @@ Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
 Plug 'thalesmello/webcomplete.vim'
 Plug 'w0rp/ale'
+Plug 'ryanoasis/vim-devicons'       " Icons, icons, icons :)
 
 " Vim only plugins
 if !has('nvim')
@@ -83,7 +84,6 @@ set autoread                      " reload file if the file changes on the disk
 set autowrite                     " write when switching buffers
 set autowriteall                  " write on :quit
 set clipboard=unnamedplus
-set colorcolumn=81                " highlight the 80th column as an indicator
 set completeopt-=preview          " remove the horrendous preview window
 set cursorline                    " highlight the current line for the cursor
 set encoding=utf-8
@@ -110,8 +110,8 @@ if has('nvim')
     " install the neovim package for these binaries separately like this for
     " example:
     " pip3.6 install -U neovim
-    let g:python_host_prog = '/home/phbortolotti/.pyenv/versions/2.7.15/envs/python2.7.15/bin/python'
-    let g:python3_host_prog = '/home/phbortolotti/.pyenv/versions/3.6.5/envs/python3.6.5/bin/python'
+    let g:python_host_prog = '/home/phbortolotti/.pyenv/versions/2.7.15/bin/python'
+    let g:python3_host_prog = '/home/phbortolotti/.pyenv/versions/3.6.5/bin/python'
 endif
 
 " Enable mouse if possible
@@ -182,10 +182,10 @@ nnoremap N Nzzzv
 " Navigation
 "----------------------------------------------
 " Disable arrow keys
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+" noremap <Up> <NOP>
+" noremap <Down> <NOP>
+" noremap <Left> <NOP>
+" noremap <Right> <NOP>
 
 " Move between buffers with Shift + arrow key...
 nnoremap <S-Left> :bprevious<cr>
@@ -222,6 +222,33 @@ nnoremap <leader>h :split<cr>
 
 " Closing splits
 nnoremap <leader>q :close<cr>
+
+"----------------------------------------------
+" Plugin: ryanoasis/devicons
+"----------------------------------------------
+" loading the plugin
+let g:webdevicons_enable = 1
+
+" ctrlp glyphs
+let g:webdevicons_enable_ctrlp = 1
+
+" adding to flagship's statusline
+let g:webdevicons_enable_flagship_statusline = 1
+
+" use double-width(1) or single-width(0) glyphs
+" only manipulates padding, has no effect on terminal or set(guifont) font
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+
+" set a byte character marker (BOM) utf-8 symbol when retrieving file encoding
+" disabled by default with no value
+let g:WebDevIconsUnicodeByteOrderMarkerDefaultSymbol = ''
+
+" enable folder/directory glyph flag (disabled by default with 0)
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+
+" enable open and close folder/directory glyph flags (disabled by default with 0)
+let g:DevIconsEnableFoldersOpenClose = 1
+
 
 "----------------------------------------------
 " Plugin: MattesGroeger/vim-bookmarks
