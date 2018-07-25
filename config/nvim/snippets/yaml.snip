@@ -1,0 +1,158 @@
+# utils
+
+snippet     kv
+abbr        key-value
+options     head
+  ${1:#:key}: ${2:#:value}
+
+
+# gocd
+
+snippet     gocd_env
+abbr        gocd environment scaffold
+options     head
+  environment:
+    ${1:#:environment_name}:
+      pipelines:
+        - ${2:#:pipeline_name}
+
+
+snippet     gocd_pipelines
+abbr        gocd pipelines scaffold
+options     head
+  pipelines:
+    ${1:#:pipeline_name}:
+      group: ${2:#:group}
+      label_template: "1.0.${COUNT}"
+      locking: off
+
+
+snippet     gocd_add_pipeline
+abbr        gocd pipeline scaffold
+options     head
+  ${1:#:pipeline_name}:
+    group: ${2:#:group}
+    label_template: "1.0.${COUNT}"
+    locking: off
+
+
+snippet     gocd_vars
+abbr        gocd environment variables scaffold
+options     head
+  environment_variables:
+    ${1:#:key}: ${2:#:value}
+
+
+snippet     gocd_svars
+abbr        gocd secure variables scaffold
+options     head
+ secure_variables:
+  ${1:#:key}: ${2:#:value}
+
+
+snippet     gocd_materials_git
+abbr        gocd material scaffold
+options     head
+ materials:
+  ${1:source}:
+    git: ${2:#:git_url}
+    branch: ${3:master}
+
+
+snippet     gocd_materials_upstream
+abbr        gocd git material scaffold
+options     head
+  materials
+    ${1:#:upstream_name}:
+      pipeline: ${2:#:pipeline_name}
+      stage: ${3:#:stage_name}
+
+
+snippet     gocd_add_git
+abbr        gocd git material scaffold
+options     head
+  ${1:source}:
+    git: ${2:#:git_url}
+    branch: ${3:master}
+
+
+snippet     gocd_add_upstream
+abbr        gocd git material scaffold
+options     head
+  ${1:#:material_name}:
+    pipeline: ${2:#:pipeline_name}
+    stage: ${3:#:stage_name}
+
+
+snippet     gocd_stages
+abbr        gocd stages scaffold
+options     head
+  stages:
+    - ${1:#:stage_name}:
+      fetch_materials: yes
+      clean_workspace: yes
+      jobs:
+        ${2:#:job_name}:
+          resources:
+            - ${3:#:resource_name}
+          tasks:
+            - exec:
+              command: make
+
+
+snippet     gocd_add_stage
+abbr        gocd stage scaffold
+options     head
+  - ${1:#:stage_name}:
+    fetch_materials: yes
+    clean_workspace: yes
+    jobs:
+      ${2:#:job_name}:
+        resources:
+          - ${3:#:resource_name}
+        tasks:
+          - exec:
+            command: make
+
+
+snippet     gocd_manual_approval
+abbr        gocd manual approval
+options     head
+  approval: manual
+
+
+snippet     gocd_approval
+abbr        gocd approval
+options     head
+  approval:
+    type: manual
+    roles:
+      - ${1:#:role}
+    users:
+      - ${2:#:user}s
+
+
+snippet     gocd_add_fetch_task
+abbr        gocd add fetch task
+options     head
+ - fetch:
+    pipeline: ${1:#:pipeline_name}
+    stage: ${2:#:stage_name}
+    job: ${3:#:job_name}
+    source: ${4:#:source_name}
+
+
+snippet     gocd_add_script_task
+abbr        gocd add script task
+options     head
+  - script: ./build.sh
+
+
+snippet     gocd_add_exec_task
+abbr        gocd add exec task
+options     head
+  - exec:
+      working_directory: ${1:dir}
+      command: ${2:make}
+      arguments:
+        - ${3:install}
