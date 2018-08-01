@@ -38,6 +38,8 @@ Plug 'vimwiki/vimwiki'
 Plug 'thalesmello/webcomplete.vim'
 Plug 'w0rp/ale'
 Plug 'ryanoasis/vim-devicons'       " Icons, icons, icons :)
+Plug 'shime/vim-livedown'           " Markdown preview
+Plug 'andrewstuart/vim-kubernetes'
 
 " Vim only plugins
 if !has('nvim')
@@ -248,6 +250,23 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
 " enable open and close folder/directory glyph flags (disabled by default with 0)
 let g:DevIconsEnableFoldersOpenClose = 1
+
+
+"----------------------------------------------
+" Plugin: shime/vim-livedown
+"----------------------------------------------
+" should markdown preview get shown automatically upon opening markdown buffer
+let g:livedown_autorun = 0
+
+" should the browser window pop-up upon previewing
+let g:livedown_open = 1
+
+" the port on which Livedown server will run
+let g:livedown_port = 1337
+
+" Mappings
+noremap <Leader>lp :LivedownPreview<CR>
+noremap <Leader>lk :LivedownKill<CR>
 
 
 "----------------------------------------------
@@ -495,9 +514,11 @@ let NERDTreeIgnore = [
     \ '\~$',
     \ '\.pyc$',
     \ '^\.DS_Store$',
+    \ '^\.git$',
     \ '^node_modules$',
     \ '^.ropeproject$',
-    \ '^__pycache__$'
+    \ '^__pycache__$',
+    \ '^.vagrant'
 \]
 
 " Close vim if NERDTree is the only opened window.
@@ -528,9 +549,9 @@ let g:neosnippet#disable_runtime_snippets = {
 \}
 
 " Keybindings
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
+imap <C-o> <Plug>(neosnippet_expand_or_jump)
+smap <C-o> <Plug>(neosnippet_expand_or_jump)
+xmap <C-o> <Plug>(neosnippet_expand_target)
 
 " Set the path to our snippets
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
@@ -761,6 +782,14 @@ au FileType ruby set expandtab
 au FileType ruby set shiftwidth=2
 au FileType ruby set softtabstop=2
 au FileType ruby set tabstop=2
+
+"----------------------------------------------
+" Language: Vagrantfile
+"----------------------------------------------
+augroup vagrant
+	au!
+	au BufRead,BufNewFile Vagrantfile set filetype=ruby
+augroup END
 
 "----------------------------------------------
 " Language: SQL
