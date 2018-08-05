@@ -112,8 +112,8 @@ if has('nvim')
     " install the neovim package for these binaries separately like this for
     " example:
     " pip3.6 install -U neovim
-    let g:python_host_prog = '/home/phbortolotti/.pyenv/versions/2.7.15/bin/python'
-    let g:python3_host_prog = '/home/phbortolotti/.pyenv/versions/3.6.5/bin/python'
+    let g:python_host_prog = '/usr/bin/python2'
+    let g:python3_host_prog = '/usr/bin/python'
 endif
 
 " Enable mouse if possible
