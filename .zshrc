@@ -40,3 +40,4 @@ export PATH="$PATH:$GOPATH/bin"
 # Example aliases
 alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
+alias nvimconfig="$EDITOR $MYVIMRC"
