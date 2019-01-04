@@ -27,6 +27,7 @@ export VISUAL=nvim
 export EDITOR=nvim
 export PAGER=less
 export MYVIMRC="$HOME/.config/nvim/init.vim"
+export PYENV_ROOT="$HOME/.pyenv"
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -41,3 +42,6 @@ export PATH="$PATH:$GOPATH/bin"
 alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias nvimconfig="$EDITOR $MYVIMRC"
+alias tb="taskbook"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

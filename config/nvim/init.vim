@@ -18,6 +18,7 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'  " Default snippets for many languages
 Plug 'bling/vim-airline'
 Plug 'christoomey/vim-tmux-navigator'
+" Plug 'edkolev/tmuxline.vim'
 Plug 'ctrlpvim/ctrlp.vim'          " CtrlP is installed to support tag finding in vim-go
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/calendar.vim'
@@ -69,10 +70,11 @@ Plug 'tclh123/vim-thrift'                      " Thrift syntax highlighting
 Plug 'zchee/deoplete-go', { 'do': 'make'}      " Go auto completion
 Plug 'zchee/deoplete-jedi'                     " Go auto completion
 Plug 'zimbatm/haproxy.vim'                     " HAProxy syntax highlighting
+Plug 'posva/vim-vue'                           " Vue support
 
 " Colorschemes
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'morhetz/gruvbox'
+Plug 'tomasr/molokai'
 Plug 'sjl/badwolf'
 
 call plug#end()
@@ -98,7 +100,6 @@ set nowrap
 set noerrorbells                  " No bells!
 set novisualbell                  " I said, no bells!
 set number                        " show number ruler
-set relativenumber                " show relative numbers in the ruler
 set ruler
 set formatoptions=tcqronj         " set vims text formatting options
 set softtabstop=2
@@ -112,8 +113,8 @@ if has('nvim')
     " install the neovim package for these binaries separately like this for
     " example:
     " pip3.6 install -U neovim
-    let g:python_host_prog = '/usr/bin/python2'
-    let g:python3_host_prog = '/usr/bin/python'
+    let g:python_host_prog = '/home/phbortolotti/.pyenv/versions/2.7.15/bin/python'
+    let g:python3_host_prog = '/home/phbortolotti/.pyenv/versions/3.7.1/bin/python'
 endif
 
 " Enable mouse if possible
@@ -150,7 +151,8 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " Colors
 "----------------------------------------------
 set background=dark
-colorscheme gruvbox
+colorscheme molokai
+let g:molokai_original = 1
 
 " Override the search highlight color with a combination that is easier to
 " read. The default PaperColor is dark green backgroun with black foreground.
