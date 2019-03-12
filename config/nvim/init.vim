@@ -18,7 +18,7 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'  " Default snippets for many languages
 Plug 'bling/vim-airline'
 Plug 'christoomey/vim-tmux-navigator'
-" Plug 'edkolev/tmuxline.vim'
+"Plug 'edkolev/tmuxline.vim'
 Plug 'ctrlpvim/ctrlp.vim'          " CtrlP is installed to support tag finding in vim-go
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/calendar.vim'
@@ -36,11 +36,14 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
-Plug 'thalesmello/webcomplete.vim'
 Plug 'w0rp/ale'
 Plug 'ryanoasis/vim-devicons'       " Icons, icons, icons :)
 Plug 'shime/vim-livedown'           " Markdown preview
 Plug 'andrewstuart/vim-kubernetes'
+Plug 'phbortolotti/focanocodigo.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-fireplace'          " this plugin is for Clojure
+Plug 'vim-scripts/paredit.vim'      " this plugin is for Clojure
 
 " Vim only plugins
 if !has('nvim')
@@ -63,7 +66,7 @@ Plug 'leafgarland/typescript-vim'              " TypeScript syntax highlighting
 Plug 'lifepillar/pgsql.vim'                    " PostgreSQL syntax highlighting
 Plug 'mxw/vim-jsx'                             " JSX syntax highlighting
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' } " Go auto completion
-Plug 'pangloss/vim-javascript'                 " JavaScript syntax highlighting
+Plug 'pangloss/vim-javascript' , { 'for': ['javascript', 'javascript.jsx', 'html', 'vue'] } " JavaScript syntax highlighting
 Plug 'plasticboy/vim-markdown'                 " Markdown syntax highlighting
 Plug 'rodjek/vim-puppet'                       " Puppet syntax highlighting
 Plug 'tclh123/vim-thrift'                      " Thrift syntax highlighting
@@ -114,7 +117,7 @@ if has('nvim')
     " example:
     " pip3.6 install -U neovim
     let g:python_host_prog = '/home/phbortolotti/.pyenv/versions/2.7.15/bin/python'
-    let g:python3_host_prog = '/home/phbortolotti/.pyenv/versions/3.7.1/bin/python'
+    let g:python3_host_prog = '/home/phbortolotti/.pyenv/versions/3.7.2/bin/python'
 endif
 
 " Enable mouse if possible
@@ -194,6 +197,7 @@ nnoremap N Nzzzv
 " Move between buffers with Shift + arrow key...
 nnoremap <S-Left> :bprevious<cr>
 nnoremap <S-Right> :bnext<cr>
+nnoremap <S-Down> :Bclose<cr>
 
 " ... but skip the quickfix when navigating
 augroup qf
@@ -228,6 +232,23 @@ nnoremap <leader>h :split<cr>
 nnoremap <leader>q :close<cr>
 
 "----------------------------------------------
+" Plugin: tpope/vim-fireplace
+"----------------------------------------------
+" Hot-reloading code into the JVM
+au Filetype clojure nmap <c-c><c-k> :Require<cr>
+
+function! TestToplevel() abort
+    "Eval the toplevel clojure form (a deftest) and then test-var the result."
+    normal! ^
+    let line1 = searchpair('(','',')', 'bcrn', g:fireplace#skip)
+    let line2 = searchpair('(','',')', 'rn', g:fireplace#skip)
+    let expr = join(getline(line1, line2), "\n")
+    let var = fireplace#session_eval(expr)
+    let result = fireplace#echo_session_eval("(clojure.test/test-var " . var . ")")
+    return result
+endfunction
+
+"----------------------------------------------
 " Plugin: ryanoasis/devicons
 "----------------------------------------------
 " loading the plugin
@@ -253,6 +274,13 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 " enable open and close folder/directory glyph flags (disabled by default with 0)
 let g:DevIconsEnableFoldersOpenClose = 1
 
+"----------------------------------------------
+" Plugin: posva/vim-vue
+"----------------------------------------------
+" Fix JavaScript highlights
+let g:vue_disable_pre_processors=1
+autocmd FileType vue syntax sync fromstart
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css.less.pug
 
 "----------------------------------------------
 " Plugin: shime/vim-livedown
@@ -348,9 +376,22 @@ set laststatus=2
 " Enable top tabline.
 let g:airline#extensions#tabline#enabled = 1
 
+" Enable branch
+let g:airline#extensions#branch#enabled = 1
+
+" Enable tagbar
+let g:airline#extensions#tagbar#enabled = 1
+
+" Enable Ale
+let g:airline#extensions#ale#enabled = 1
+
+" Skip empty sections
+let g:airline_skip_empty_sections = 1
+
 " Disable showing tabs in the tabline. This will ensure that the buffers are
 " what is shown in the tabline at all times.
 let g:airline#extensions#tabline#show_tabs = 0
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " Enable powerline fonts.
 let g:airline_powerline_fonts = 1
