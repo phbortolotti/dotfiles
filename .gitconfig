@@ -4,7 +4,7 @@
 
 [alias]
   	# checkout
-	co = checkout
+	c = checkout
 	nb = checkout -b
   	# commit
 	cm = commit -m
