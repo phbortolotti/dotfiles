@@ -1,84 +1,53 @@
-"----------------------------------------------
 " Plugin management
 "
 " Download vim-plug from the URL below and follow the installation
 " instructions:
 " https://github.com/junegunn/vim-plug
 "----------------------------------------------
-call plug#begin('~/.config/nvim/plugged')
-
-" Dependencies
-Plug 'Shougo/neocomplcache'        " Depenency for Shougo/neosnippet
-Plug 'godlygeek/tabular'           " This must come before plasticboy/vim-markdown
-Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
+call plug#begin('~/.vim/plugged')
 
 " General plugins
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'  " Default snippets for many languages
 Plug 'bling/vim-airline'
 Plug 'christoomey/vim-tmux-navigator'
-"Plug 'edkolev/tmuxline.vim'
-Plug 'ctrlpvim/ctrlp.vim'          " CtrlP is installed to support tag finding in vim-go
 Plug 'editorconfig/editorconfig-vim'
-Plug 'itchyny/calendar.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'majutsushi/tagbar'
-Plug 'mhinz/vim-signify'
-Plug 'mileszs/ack.vim'
-Plug 'rbgrouleff/bclose.vim'
-Plug 'sbdchd/neoformat'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'sebdah/vim-delve'
+Plug 'ctrlpvim/ctrlp.vim'          " CtrlP is installed to support tag finding in vim-go
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'vimwiki/vimwiki'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-rhubarb'
+Plug 'rbgrouleff/bclose.vim'
+Plug 'mileszs/ack.vim'
 Plug 'w0rp/ale'
-Plug 'ryanoasis/vim-devicons'       " Icons, icons, icons :)
-Plug 'shime/vim-livedown'           " Markdown preview
-Plug 'andrewstuart/vim-kubernetes'
-Plug 'phbortolotti/focanocodigo.vim'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'  " Default snippets for many languages
+Plug 'Shougo/neocomplcache'        " Depenency for Shougo/neosnippet
+Plug 'scrooloose/nerdtree'
+Plug 'sheerun/vim-polyglot'
 Plug 'Yggdroot/indentLine'
-Plug 'tpope/vim-fireplace'          " this plugin is for Clojure
-Plug 'vim-scripts/paredit.vim'      " this plugin is for Clojure
 
-" Vim only plugins
-if !has('nvim')
-    Plug 'Shougo/vimproc.vim', {'do' : 'make'}  " Needed to make sebdah/vim-delve work on Vim
-    Plug 'Shougo/vimshell.vim'                  " Needed to make sebdah/vim-delve work on Vim
-endif
-
-" Language support
-Plug 'aklt/plantuml-syntax'                    " PlantUML syntax highlighting
-Plug 'cespare/vim-toml'                        " toml syntax highlighting
-Plug 'chr4/nginx.vim'                          " nginx syntax highlighting
-Plug 'dag/vim-fish'                            " Fish syntax highlighting
-Plug 'digitaltoad/vim-pug'                     " Pug syntax highlighting
+" language support
 Plug 'fatih/vim-go'                            " Go support
-Plug 'fishbullet/deoplete-ruby'                " Ruby auto completion
-Plug 'hashivim/vim-terraform'                  " Terraform syntax highlighting
-Plug 'kchmck/vim-coffee-script'                " CoffeeScript syntax highlighting
-Plug 'kylef/apiblueprint.vim'                  " API Blueprint syntax highlighting
-Plug 'leafgarland/typescript-vim'              " TypeScript syntax highlighting
-Plug 'lifepillar/pgsql.vim'                    " PostgreSQL syntax highlighting
-Plug 'mxw/vim-jsx'                             " JSX syntax highlighting
-Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' } " Go auto completion
-Plug 'pangloss/vim-javascript' , { 'for': ['javascript', 'javascript.jsx', 'html', 'vue'] } " JavaScript syntax highlighting
-Plug 'plasticboy/vim-markdown'                 " Markdown syntax highlighting
-Plug 'rodjek/vim-puppet'                       " Puppet syntax highlighting
-Plug 'tclh123/vim-thrift'                      " Thrift syntax highlighting
+Plug 'cespare/vim-toml'                        " toml syntax highlighting
 Plug 'zchee/deoplete-go', { 'do': 'make'}      " Go auto completion
-Plug 'zchee/deoplete-jedi'                     " Go auto completion
-Plug 'zimbatm/haproxy.vim'                     " HAProxy syntax highlighting
-Plug 'posva/vim-vue'                           " Vue support
+Plug 'davidhalter/jedi-vim'
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'plasticboy/vim-markdown'                 " Markdown syntax highlighting
+Plug 'HerringtonDarkholme/yats.vim'            " TypeScript syntax
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'pangloss/vim-javascript'                 " JavaScript syntax highlighting
+Plug 'mxw/vim-jsx'                             " JSX syntax highlighting
+Plug 'hail2u/vim-css3-syntax'                  " html bundle
+Plug 'gorodinskiy/vim-coloresque'
+Plug 'tpope/vim-haml'
+Plug 'mattn/emmet-vim'
 
-" Colorschemes
+" colorschema
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'tomasr/molokai'
-Plug 'sjl/badwolf'
+Plug 'altercation/vim-colors-solarized'
+Plug 'ayu-theme/ayu-vim'
+Plug 'kaicataldo/material.vim'
+Plug 'rakr/vim-one'
 
 call plug#end()
 
@@ -92,7 +61,6 @@ set autowrite                     " write when switching buffers
 set autowriteall                  " write on :quit
 set clipboard=unnamedplus
 set completeopt-=preview          " remove the horrendous preview window
-set cursorline                    " highlight the current line for the cursor
 set encoding=utf-8
 set expandtab                     " expands tabs to spaces
 set list                          " show trailing whitespace
@@ -103,27 +71,21 @@ set nowrap
 set noerrorbells                  " No bells!
 set novisualbell                  " I said, no bells!
 set number                        " show number ruler
+set relativenumber                " show relative numbers in the ruler
 set ruler
 set formatoptions=tcqronj         " set vims text formatting options
 set softtabstop=2
 set tabstop=2
 set title                         " let vim set the terminal title
 set updatetime=100                " redraw the status bar often
+set mouse=a                       " enable mouse
 
-" neovim specific settings
-if has('nvim')
-    " Set the Python binaries neovim is using. Please note that you will need to
-    " install the neovim package for these binaries separately like this for
-    " example:
-    " pip3.6 install -U neovim
-    let g:python_host_prog = '/home/phbortolotti/.pyenv/versions/2.7.15/bin/python'
-    let g:python3_host_prog = '/home/phbortolotti/.pyenv/versions/3.7.2/bin/python'
-endif
-
-" Enable mouse if possible
-if has('mouse')
-    set mouse=a
-endif
+" Set the Python binaries neovim is using. Please note that you will need to
+" install the neovim package for these binaries separately like this for
+" example:
+" pip3.6 install -U neovim
+let g:python_host_prog = '/home/phbortolotti/.pyenv/versions/2.7.15/bin/python'
+let g:python3_host_prog = '/home/phbortolotti/.pyenv/versions/3.7.2/bin/python'
 
 " Allow vim to set a custom font or color for a word
 syntax enable
@@ -140,22 +102,38 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Center the screen quickly
 nnoremap <space> zz
 
-" Disable the blinking cursor
-set gcr=a:blinkon0
-
-" Scrolloff
-set scrolloff=3
-
 " Edit and load vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+
 "----------------------------------------------
 " Colors
 "----------------------------------------------
+if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
+"For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+"Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+" < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 set background=dark
-colorscheme molokai
-let g:molokai_original = 1
+
+" Material colorscheme settings
+let g:material_theme_style = 'dark'
+
+" Ayu colorscheme settings
+let ayucolor = 'dark'
+
+" One colorscheme settings
+let g:one_allow_italics = 1
+
+colorscheme one
 
 " Override the search highlight color with a combination that is easier to
 " read. The default PaperColor is dark green backgroun with black foreground.
@@ -164,8 +142,6 @@ let g:molokai_original = 1
 " - http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 highlight Search guibg=DeepPink4 guifg=White ctermbg=53 ctermfg=White
 
-" Toggle background with <leader>bg
-map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
 
 "----------------------------------------------
 " Searching
@@ -185,19 +161,19 @@ map <leader>c :nohlsearch<cr>
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+
 "----------------------------------------------
 " Navigation
 "----------------------------------------------
 " Disable arrow keys
-" noremap <Up> <NOP>
-" noremap <Down> <NOP>
-" noremap <Left> <NOP>
-" noremap <Right> <NOP>
+"noremap <Up> <NOP>
+"noremap <Down> <NOP>
+"noremap <Left> <NOP>
+"noremap <Right> <NOP>
 
 " Move between buffers with Shift + arrow key...
 nnoremap <S-Left> :bprevious<cr>
 nnoremap <S-Right> :bnext<cr>
-nnoremap <S-Down> :Bclose<cr>
 
 " ... but skip the quickfix when navigating
 augroup qf
@@ -217,6 +193,7 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
+
 "----------------------------------------------
 " Splits
 "----------------------------------------------
@@ -231,141 +208,6 @@ nnoremap <leader>h :split<cr>
 " Closing splits
 nnoremap <leader>q :close<cr>
 
-"----------------------------------------------
-" Plugin: tpope/vim-fireplace
-"----------------------------------------------
-" Hot-reloading code into the JVM
-au Filetype clojure nmap <c-c><c-k> :Require<cr>
-
-function! TestToplevel() abort
-    "Eval the toplevel clojure form (a deftest) and then test-var the result."
-    normal! ^
-    let line1 = searchpair('(','',')', 'bcrn', g:fireplace#skip)
-    let line2 = searchpair('(','',')', 'rn', g:fireplace#skip)
-    let expr = join(getline(line1, line2), "\n")
-    let var = fireplace#session_eval(expr)
-    let result = fireplace#echo_session_eval("(clojure.test/test-var " . var . ")")
-    return result
-endfunction
-
-"----------------------------------------------
-" Plugin: ryanoasis/devicons
-"----------------------------------------------
-" loading the plugin
-let g:webdevicons_enable = 1
-
-" ctrlp glyphs
-let g:webdevicons_enable_ctrlp = 1
-
-" adding to flagship's statusline
-let g:webdevicons_enable_flagship_statusline = 1
-
-" use double-width(1) or single-width(0) glyphs
-" only manipulates padding, has no effect on terminal or set(guifont) font
-let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
-
-" set a byte character marker (BOM) utf-8 symbol when retrieving file encoding
-" disabled by default with no value
-let g:WebDevIconsUnicodeByteOrderMarkerDefaultSymbol = ''
-
-" enable folder/directory glyph flag (disabled by default with 0)
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-
-" enable open and close folder/directory glyph flags (disabled by default with 0)
-let g:DevIconsEnableFoldersOpenClose = 1
-
-"----------------------------------------------
-" Plugin: posva/vim-vue
-"----------------------------------------------
-" Fix JavaScript highlights
-let g:vue_disable_pre_processors=1
-autocmd FileType vue syntax sync fromstart
-autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css.less.pug
-
-"----------------------------------------------
-" Plugin: shime/vim-livedown
-"----------------------------------------------
-" should markdown preview get shown automatically upon opening markdown buffer
-let g:livedown_autorun = 0
-
-" should the browser window pop-up upon previewing
-let g:livedown_open = 1
-
-" the port on which Livedown server will run
-let g:livedown_port = 1337
-
-" Mappings
-noremap <Leader>lp :LivedownPreview<CR>
-noremap <Leader>lk :LivedownKill<CR>
-
-
-"----------------------------------------------
-" Plugin: MattesGroeger/vim-bookmarks
-"----------------------------------------------
-" Auto save bookmarks
-let g:bookmark_auto_save = 1
-
-" Store the bookmarks in the projects
-let g:bookmark_save_per_working_dir = 1
-
-" Disable the default key mappings
-let g:bookmark_no_default_key_mappings = 1
-
-" Configure key mappings
-" This part also fixes conflicts with NERDTree
-function! BookmarkMapKeys()
-    nmap Mm :BookmarkToggle<cr>
-    nmap Mi :BookmarkAnnotate<cr>
-    nmap Mn :BookmarkNext<cr>
-    nmap Mp :BookmarkPrev<cr>
-    nmap Ma :BookmarkShowAll<cr>
-    nmap Mc :BookmarkClear<cr>
-    nmap Mx :BookmarkClearAll<cr>
-    nmap Mkk :BookmarkMoveUp
-    nmap Mjj :BookmarkMoveDown
-endfunction
-function! BookmarkUnmapKeys()
-    unmap Mm
-    unmap Mi
-    unmap Mn
-    unmap Mp
-    unmap Ma
-    unmap Mc
-    unmap Mx
-    unmap Mkk
-    unmap Mjj
-endfunction
-autocmd BufEnter * :call BookmarkMapKeys()
-autocmd BufEnter NERD_tree_* :call BookmarkUnmapKeys()
-
-"----------------------------------------------
-" Plugin: tpope/vim-fugitive
-"----------------------------------------------
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gr :Gremove<CR>
-
-"----------------------------------------------
-" Plugin: Shougo/deoplete.nvim
-"----------------------------------------------
-if has('nvim')
-    " Enable deoplete on startup
-    let g:deoplete#enable_at_startup = 1
-endif
-
-" Disable deoplete when in multi cursor mode
-function! Multiple_cursors_before()
-    let b:deoplete_disable_auto_complete = 1
-endfunction
-
-function! Multiple_cursors_after()
-    let b:deoplete_disable_auto_complete = 0
-endfunction
 
 "----------------------------------------------
 " Plugin: bling/vim-airline
@@ -376,25 +218,12 @@ set laststatus=2
 " Enable top tabline.
 let g:airline#extensions#tabline#enabled = 1
 
-" Enable branch
-let g:airline#extensions#branch#enabled = 1
-
-" Enable tagbar
-let g:airline#extensions#tagbar#enabled = 1
-
-" Enable Ale
-let g:airline#extensions#ale#enabled = 1
-
-" Skip empty sections
-let g:airline_skip_empty_sections = 1
-
 " Disable showing tabs in the tabline. This will ensure that the buffers are
 " what is shown in the tabline at all times.
 let g:airline#extensions#tabline#show_tabs = 0
-let g:airline#extensions#tabline#fnamemod = ':t'
 
 " Enable powerline fonts.
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 
 " Explicitly define some symbols that did not work well for me in Linux.
 if !exists('g:airline_symbols')
@@ -402,6 +231,10 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.maxlinenr = ''
+
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
+
 
 "----------------------------------------------
 " Plugin: christoomey/vim-tmux-navigator
@@ -425,109 +258,6 @@ nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
-"----------------------------------------------
-" Plugin: 'ctrlpvim/ctrlp.vim'
-"----------------------------------------------
-" Note: We are not using CtrlP much in this configuration. But vim-go depend on
-" it to run GoDecls(Dir).
-
-" Disable the CtrlP mapping, since we want to use FZF instead for <c-p>.
-let g:ctrlp_map = ''
-
-"----------------------------------------------
-" Plugin: easymotion/vim-easymotion
-"----------------------------------------------
-" Enable support for bidirectional motions
-map  <leader><leader>w <Plug>(easymotion-bd-w)
-nmap <leader><leader>w <Plug>(easymotion-overwin-w)
-
-"----------------------------------------------
-" Plugin: 'itchyny/calendar.vim'
-"----------------------------------------------
-" Enable Google Calendar integration.
-let g:calendar_google_calendar = 1
-
-" Enable Google Tasks integration.
-let g:calendar_google_task = 1
-
-" Other options
-let g:calendar_first_day = "monday"           " Weeks starts with Monday
-let g:calendar_date_endian = "big"            " Format: year / month / day
-let g:calendar_date_separator = "-"           " Format: year - month - day
-let g:calendar_week_number = 1                " Show week numbers
-let g:calendar_view = "days"                  " Set days as the default view
-
-"----------------------------------------------
-" Plugin: 'junegunn/fzf.vim'
-"----------------------------------------------
-nnoremap <c-p> :FZF<cr>
-
-"----------------------------------------------
-" Plugin: 'majutsushi/tagbar'
-"----------------------------------------------
-" Add shortcut for toggling the tag bar
-nnoremap <F3> :TagbarToggle<cr>
-
-"----------------------------------------------
-" Plugin: w0rp/ale
-"----------------------------------------------
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'python': ['flake8'],
-\   'go': ['go', 'gofmt', 'gometalinter']
-\}
-
-nmap <silent> <leader>a <Plug>(ale_next_wrap)
-
-" Disabling highlighting
-let g:ale_set_highlights = 0
-
-" Only run linting when saving the file
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
-
-" Lint sign
-let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '⚠'
-
-" Language: Go
-" Tagbar configuration for Golang
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
-
-"----------------------------------------------
-" Plugin: plasticboy/vim-markdown
-"----------------------------------------------
-" Disable folding
-let g:vim_markdown_folding_disabled = 1
-
-" Auto shrink the TOC, so that it won't take up 50% of the screen
-let g:vim_markdown_toc_autofit = 1
 
 "----------------------------------------------
 " Plugin: rbgrouleff/bclose.vim
@@ -535,49 +265,61 @@ let g:vim_markdown_toc_autofit = 1
 " Close buffers
 nnoremap <leader>w :Bclose<cr>
 
+
 "----------------------------------------------
 " Plugin: mileszs/ack.vim
 "----------------------------------------------
 " Open ack
-nnoremap <c-f> :Ack!<space>
+nnoremap <leader>a :Ack!<space>
 
-" Use Ag
+" Use the_silver_searcher
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-"----------------------------------------------
-" Plugin: scrooloose/nerdtree
-"----------------------------------------------
-nnoremap <leader>d :NERDTreeToggle<cr>
-nnoremap <F2> :NERDTreeToggle<cr>
-
-" Files to ignore
-let NERDTreeIgnore = [
-    \ '\~$',
-    \ '\.pyc$',
-    \ '^\.DS_Store$',
-    \ '^\.git$',
-    \ '^node_modules$',
-    \ '^.ropeproject$',
-    \ '^__pycache__$',
-    \ '^.vagrant'
-\]
-
-" Close vim if NERDTree is the only opened window.
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-" Show hidden files by default.
-let NERDTreeShowHidden = 1
-
-" Allow NERDTree to change session root.
-let g:NERDTreeChDirMode = 2
 
 "----------------------------------------------
-" Plugin: sebdah/vim-delve
+" Plugin: Shougo/deoplete.nvim
 "----------------------------------------------
-" Set the Delve backend.
-let g:delve_backend = "native"
+" Enable deoplete on startup
+let g:deoplete#enable_at_startup = 1
+
+let g:deoplete#sources#go#gocode_binary = $HOME.'/Development/gowork/bin/gocode'
+let g:deoplete#sources#go#source_importer = 1
+
+call deoplete#custom#option({
+\ 'auto_complete_delay': 0,
+\ 'auto_refresh_delay': 10,
+\})
+
+"----------------------------------------------
+" Plugin: tpope/vim-fugitive
+"----------------------------------------------
+noremap <Leader>ga :Gwrite<CR>
+noremap <Leader>gc :Gcommit<CR>
+noremap <Leader>gsh :Gpush<CR>
+noremap <Leader>gll :Gpull<CR>
+noremap <Leader>gs :Gstatus<CR>
+noremap <Leader>gb :Gblame<CR>
+noremap <Leader>gd :Gvdiff<CR>
+noremap <Leader>gr :Gremove<CR>
+
+
+"----------------------------------------------
+" Plugin: w0rp/ale
+"----------------------------------------------
+" Keep the sign gutter open
+let g:ale_sign_column_always = 1
+
+" Change the format for echo messages
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+" Navigate between errors quickly
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 
 "----------------------------------------------
 " Plugin: Shougo/neosnippet
@@ -592,38 +334,49 @@ let g:neosnippet#disable_runtime_snippets = {
 \}
 
 " Keybindings
-imap <C-o> <Plug>(neosnippet_expand_or_jump)
-smap <C-o> <Plug>(neosnippet_expand_or_jump)
-xmap <C-o> <Plug>(neosnippet_expand_target)
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " Set the path to our snippets
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 
-"----------------------------------------------
-" Plugin: vimwiki/vimwiki
-"----------------------------------------------
-" Path to wiki
-let g:vimwiki_list = [{
-        \ 'path': '~/Dropbox/vimwiki',
-        \ 'syntax': 'markdown',
-        \ 'ext': '.vimwiki.markdown'}]
-
-au FileType vimwiki set expandtab
-au FileType vimwiki set shiftwidth=2
-au FileType vimwiki set softtabstop=2
-au FileType vimwiki set tabstop=2
 
 "----------------------------------------------
-" Plugin: 'terryma/vim-multiple-cursors'
+" Plugin: scrooloose/nerdtree
 "----------------------------------------------
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_skip_key='<C-b>'
+nnoremap <leader>d :NERDTreeToggle<cr>
+nnoremap <F2> :NERDTreeToggle<cr>
+
+" Files to ignore
+let NERDTreeIgnore = [
+    \ '\~$',
+    \ '\.pyc$',
+    \ '^\.DS_Store$',
+    \ '^node_modules$',
+    \ '^.ropeproject$',
+    \ '^__pycache__$'
+\]
+
+" Close vim if NERDTree is the only opened window.
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Show hidden files by default.
+let NERDTreeShowHidden = 1
+
+" Allow NERDTree to change session root.
+let g:NERDTreeChDirMode = 2
+
 
 "----------------------------------------------
-" Plugin: zchee/deoplete-go
+" Plugin: plasticboy/vim-markdown
 "----------------------------------------------
-" Enable completing of go pointers
-let g:deoplete#sources#go#pointer = 1
+" Disable folding
+let g:vim_markdown_folding_disabled = 1
+
+" Auto shrink the TOC, so that it won't take up 50% of the screen
+let g:vim_markdown_toc_autofit = 1
+
 
 "----------------------------------------------
 " Language: Golang
@@ -680,9 +433,11 @@ let g:go_list_type = "quickfix"
 " Add the failing test name to the output of :GoTest
 let g:go_test_show_name = 1
 
+let g:go_gocode_propose_source=1
+
 " gometalinter configuration
-let g:go_metalinter_command = ""
-let g:go_metalinter_deadline = "5s"
+"let g:go_metalinter_command = ""
+"let g:go_metalinter_deadline = "5s"
 let g:go_metalinter_enabled = [
     \ 'deadcode',
     \ 'gas',
@@ -696,15 +451,7 @@ let g:go_metalinter_enabled = [
 \]
 
 " Set whether the JSON tags should be snakecase or camelcase.
-let g:go_addtags_transform = "snakecase"
-
-"----------------------------------------------
-" Language: apiblueprint
-"----------------------------------------------
-au FileType apiblueprint set expandtab
-au FileType apiblueprint set shiftwidth=4
-au FileType apiblueprint set softtabstop=4
-au FileType apiblueprint set tabstop=4
+let g:go_addtags_transform = "camelcase"
 
 "----------------------------------------------
 " Language: Bash
@@ -715,26 +462,10 @@ au FileType sh set softtabstop=2
 au FileType sh set tabstop=2
 
 "----------------------------------------------
-" Language: CSS
-"----------------------------------------------
-au FileType css set expandtab
-au FileType css set shiftwidth=2
-au FileType css set softtabstop=2
-au FileType css set tabstop=2
-
-"----------------------------------------------
 " Language: gitcommit
 "----------------------------------------------
 au FileType gitcommit setlocal spell
 au FileType gitcommit setlocal textwidth=80
-
-"----------------------------------------------
-" Language: fish
-"----------------------------------------------
-au FileType fish set expandtab
-au FileType fish set shiftwidth=2
-au FileType fish set softtabstop=2
-au FileType fish set tabstop=2
 
 "----------------------------------------------
 " Language: gitconfig
@@ -745,12 +476,44 @@ au FileType gitconfig set softtabstop=2
 au FileType gitconfig set tabstop=2
 
 "----------------------------------------------
-" Language: HTML
+" Language: YAML
 "----------------------------------------------
-au FileType html set expandtab
-au FileType html set shiftwidth=2
-au FileType html set softtabstop=2
-au FileType html set tabstop=2
+au FileType yaml set expandtab
+au FileType yaml set shiftwidth=2
+au FileType yaml set softtabstop=2
+au FileType yaml set tabstop=2
+
+"----------------------------------------------
+" Language: vimscript
+"----------------------------------------------
+au FileType vim set expandtab
+au FileType vim set shiftwidth=4
+au FileType vim set softtabstop=4
+au FileType vim set tabstop=4
+
+"----------------------------------------------
+" Language: TOML
+"----------------------------------------------
+au FileType toml set expandtab
+au FileType toml set shiftwidth=2
+au FileType toml set softtabstop=2
+au FileType toml set tabstop=2
+
+"----------------------------------------------
+" Language: Python
+"----------------------------------------------
+au FileType python set expandtab
+au FileType python set shiftwidth=4
+au FileType python set softtabstop=4
+au FileType python set tabstop=4
+
+"----------------------------------------------
+" Language: TypeScript
+"----------------------------------------------
+au FileType typescript set expandtab
+au FileType typescript set shiftwidth=4
+au FileType typescript set softtabstop=4
+au FileType typescript set tabstop=4
 
 "----------------------------------------------
 " Language: JavaScript
@@ -769,70 +532,28 @@ au FileType json set softtabstop=2
 au FileType json set tabstop=2
 
 "----------------------------------------------
+" Language: HTML
+"----------------------------------------------
+au FileType html set expandtab
+au FileType html set shiftwidth=2
+au FileType html set softtabstop=2
+au FileType html set tabstop=2
+
+"----------------------------------------------
+" Language: CSS
+"----------------------------------------------
+au FileType css set expandtab
+au FileType css set shiftwidth=2
+au FileType css set softtabstop=2
+au FileType css set tabstop=2
+
+"----------------------------------------------
 " Language: LESS
 "----------------------------------------------
 au FileType less set expandtab
 au FileType less set shiftwidth=2
 au FileType less set softtabstop=2
 au FileType less set tabstop=2
-
-"----------------------------------------------
-" Language: Make
-"----------------------------------------------
-au FileType make set noexpandtab
-au FileType make set shiftwidth=2
-au FileType make set softtabstop=2
-au FileType make set tabstop=2
-
-"----------------------------------------------
-" Language: Markdown
-"----------------------------------------------
-au FileType markdown setlocal spell
-au FileType markdown set expandtab
-au FileType markdown set shiftwidth=4
-au FileType markdown set softtabstop=4
-au FileType markdown set tabstop=4
-au FileType markdown set syntax=markdown
-
-"----------------------------------------------
-" Language: PlantUML
-"----------------------------------------------
-au FileType plantuml set expandtab
-au FileType plantuml set shiftwidth=2
-au FileType plantuml set softtabstop=2
-au FileType plantuml set tabstop=2
-
-"----------------------------------------------
-" Language: Protobuf
-"----------------------------------------------
-au FileType proto set expandtab
-au FileType proto set shiftwidth=2
-au FileType proto set softtabstop=2
-au FileType proto set tabstop=2
-
-"----------------------------------------------
-" Language: Python
-"----------------------------------------------
-au FileType python set expandtab
-au FileType python set shiftwidth=4
-au FileType python set softtabstop=4
-au FileType python set tabstop=4
-
-"----------------------------------------------
-" Language: Ruby
-"----------------------------------------------
-au FileType ruby set expandtab
-au FileType ruby set shiftwidth=2
-au FileType ruby set softtabstop=2
-au FileType ruby set tabstop=2
-
-"----------------------------------------------
-" Language: Vagrantfile
-"----------------------------------------------
-augroup vagrant
-	au!
-	au BufRead,BufNewFile Vagrantfile set filetype=ruby
-augroup END
 
 "----------------------------------------------
 " Language: SQL
@@ -843,49 +564,11 @@ au FileType sql set softtabstop=2
 au FileType sql set tabstop=2
 
 "----------------------------------------------
-" Language: Thrift
+" Language: Markdown
 "----------------------------------------------
-au FileType thrift set expandtab
-au FileType thrift set shiftwidth=2
-au FileType thrift set softtabstop=2
-au FileType thrift set tabstop=2
-
-"----------------------------------------------
-" Language: TOML
-"----------------------------------------------
-au FileType toml set expandtab
-au FileType toml set shiftwidth=2
-au FileType toml set softtabstop=2
-au FileType toml set tabstop=2
-
-"----------------------------------------------
-" Language: TypeScript
-"----------------------------------------------
-au FileType typescript set expandtab
-au FileType typescript set shiftwidth=4
-au FileType typescript set softtabstop=4
-au FileType typescript set tabstop=4
-
-"----------------------------------------------
-" Language: Vader
-"----------------------------------------------
-au FileType vader set expandtab
-au FileType vader set shiftwidth=2
-au FileType vader set softtabstop=2
-au FileType vader set tabstop=2
-
-"----------------------------------------------
-" Language: vimscript
-"----------------------------------------------
-au FileType vim set expandtab
-au FileType vim set shiftwidth=4
-au FileType vim set softtabstop=4
-au FileType vim set tabstop=4
-
-"----------------------------------------------
-" Language: YAML
-"----------------------------------------------
-au FileType yaml set expandtab
-au FileType yaml set shiftwidth=2
-au FileType yaml set softtabstop=2
-au FileType yaml set tabstop=2
+au FileType markdown setlocal spell
+au FileType markdown set expandtab
+au FileType markdown set shiftwidth=4
+au FileType markdown set softtabstop=4
+au FileType markdown set tabstop=4
+au FileType markdown set syntax=markdown

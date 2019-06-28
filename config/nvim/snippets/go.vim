@@ -47,3 +47,4 @@ function! g:NeosnippetSnippets_Goiferr() abort
 
   return '${1:' . join(rets, ", ") . '${0\}}'
 endfunction
+

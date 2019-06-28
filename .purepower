@@ -164,10 +164,10 @@ fi
   fi
 
   typeset -ga POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
-      dir vcs)
+      context dir vcs nvm)
 
   typeset -ga POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
-      status command_execution_time background_jobs custom_rprompt context)
+      status command_execution_time background_jobs custom_rprompt virtualenv)
 
   local ins=$(_pp_s '>' '❯')
   local cmd=$(_pp_s '<' '❮')
