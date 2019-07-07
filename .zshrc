@@ -16,6 +16,7 @@ plugins=(
   fzf
   autojump
   tmux
+  zsh-autosuggestions
 )
 
 # Let's Rock
@@ -52,5 +53,7 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias nvimconfig="$EDITOR $MYVIMRC"
+alias oldvim="/usr/bin/vim"
+alias vim="nvim"
 
 source ~/.purepower
