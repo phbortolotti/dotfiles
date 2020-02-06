@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/phbpx/Development/repos/intera-frontend/src/dashboard'
+let g:netrw_dirhist_3='/home/phbpx/Development/repos/intera-frontend/src'
+let g:netrw_dirhist_2='/home/phbpx/Development/repos/intera-frontend'
+let g:netrw_dirhist_1='/home/phbpx/.config/nvim/plugin'
