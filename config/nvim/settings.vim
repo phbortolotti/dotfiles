@@ -15,7 +15,7 @@ set noswapfile                    " disable swapfile usage
 set nowrap
 set noerrorbells                  " No bells!
 set novisualbell                  " I said, no bells!
-set ruler
+"set ruler
 set formatoptions=tcqronj         " set vims text formatting options
 set softtabstop=2
 set tabstop=2
@@ -49,7 +49,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " === Colors ==== {{{
 set background=dark
-colorscheme monokai
+colorscheme dracula
 
 " set transparency =]
 hi Normal guibg=NONE ctermbg=none

@@ -1,7 +1,10 @@
 
-let g:ale_javascript_eslint_executable = 'eslint_d'
+let g:ale_finxers = {
+\   'javascript':   ['standard'],
+\   'json':         ['jq']
+\}
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['standard'],
 \}
 
 let g:ale_lint_on_save = 1

@@ -1,5 +1,7 @@
 configuration {
-	theme: "flat-orange.rasi";
-	font: "Roboto 10";
+  modi: "window,drun,ssh,combi";
+  theme: "dracula.rasi";
+  font: "Ubuntu 12";
   width: 25;
+  combi-modi: "window,drun,ssh";
 }

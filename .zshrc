@@ -21,7 +21,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Default User
-#DEFAULT_USER="phbpx"
+DEFAULT_USER="phbpx"
 
 # Disable auto title
 DISABLE_AUTO_TITLE=true
@@ -35,6 +35,7 @@ export MYVIMRC="$HOME/.config/nvim/init.vim"
 export MYVIMRC_PG="$HOME/.config/nvim/plugins.vim"
 export MYVIMRC_ST="$HOME/.config/nvim/settings.vim"
 export MYVIMRC_FT="$HOME/.config/nvim/filetypes.vim"
+export PATH="$PATH:$HOME/.local/bin"
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -57,4 +58,3 @@ alias nvim-filetypes="$EDITOR $MYVIMRC_FT"
 
 alias oldvim="/usr/bin/vim"
 alias vim="nvim"
-

@@ -1,6 +1,7 @@
 set showtabline=2
 
 let g:lightline = {
+      \ 'colorscheme': 'dracula',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],

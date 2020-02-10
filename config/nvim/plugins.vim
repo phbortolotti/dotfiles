@@ -9,14 +9,20 @@ Plug 'maximbaz/lightline-ale'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tyru/open-browser-github.vim'
+Plug 'tyru/open-browser.vim'
 " }}}
 
 " Colors / Themes {{{
 Plug 'sickill/vim-monokai'
+Plug 'rakr/vim-one'
+Plug 'joshdick/onedark.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 " }}}
 
 " Lang support {{{
-" JS
 Plug 'ternjs/tern_for_vim', { 'do': 'npm i && npm i -g tern' }
 Plug 'carlitux/deoplete-ternjs'
 Plug 'plasticboy/vim-markdown'                 " Markdown syntax highlighting
@@ -28,6 +34,7 @@ Plug 'hail2u/vim-css3-syntax'                  " html bundle
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'tpope/vim-haml'
 Plug 'mattn/emmet-vim'
+Plug 'fatih/vim-go'
 " }}}
 
 call plug#end()
