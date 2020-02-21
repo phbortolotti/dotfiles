@@ -1,7 +1,7 @@
 configuration {
   modi: "window,drun,ssh,combi";
-  theme: "dracula.rasi";
-  font: "Ubuntu 12";
-  width: 25;
+  theme: "android_notification.rasi";
+  font: "Fantasque Sans Mono 12";
+  width: 35;
   combi-modi: "window,drun,ssh";
 }

@@ -1,40 +1,23 @@
 call plug#begin('~/.config/nvim/plugged')
 
-" General plugins {{{
-Plug 'itchyny/lightline.vim'
+" GENERAL
+Plug 'Shougo/denite.nvim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'mileszs/ack.vim'
+Plug 'kien/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'dense-analysis/ale'
-Plug 'maximbaz/lightline-ale'
-Plug 'ludovicchabant/vim-gutentags'
+Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-commentary'
-Plug 'tyru/open-browser-github.vim'
-Plug 'tyru/open-browser.vim'
-" }}}
 
-" Colors / Themes {{{
-Plug 'sickill/vim-monokai'
-Plug 'rakr/vim-one'
-Plug 'joshdick/onedark.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
-" }}}
+" LANGUAGE
+Plug 'godlygeek/tabular'          " Dependency for plasticboy/vim-markdown
+Plug 'plasticboy/vim-markdown'
+Plug 'mrk21/yaml-vim'
+Plug 'fatih/vim-go'               " Go support
 
-" Lang support {{{
-Plug 'ternjs/tern_for_vim', { 'do': 'npm i && npm i -g tern' }
-Plug 'carlitux/deoplete-ternjs'
-Plug 'plasticboy/vim-markdown'                 " Markdown syntax highlighting
-Plug 'HerringtonDarkholme/yats.vim'            " TypeScript syntax
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-Plug 'pangloss/vim-javascript'                 " JavaScript syntax highlighting
-Plug 'mxw/vim-jsx'                             " JSX syntax highlighting
-Plug 'hail2u/vim-css3-syntax'                  " html bundle
-Plug 'gorodinskiy/vim-coloresque'
-Plug 'tpope/vim-haml'
-Plug 'mattn/emmet-vim'
-Plug 'fatih/vim-go'
-" }}}
+" COLORS
+Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()

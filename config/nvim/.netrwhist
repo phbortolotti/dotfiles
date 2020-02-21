@@ -1,12 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
-let g:netrw_dirhist_6='/home/phbpx/Development/repos/intera/intera-frontend/src/crawlers'
-let g:netrw_dirhist_5='/home/phbpx/Development/repos/intera/intera-frontend/src'
-let g:netrw_dirhist_4='/home/phbpx/Development/repos/intera/intera-frontend'
-let g:netrw_dirhist_3='/home/phbpx/Development/repos/intera/intera-frontend/src/crawlers'
-let g:netrw_dirhist_2='/home/phbpx/Development/repos/intera/intera-frontend/src'
-let g:netrw_dirhist_1='/home/phbpx/Development/repos/intera/intera-frontend'
-let g:netrw_dirhist_0='/home/phbpx/Development/repos/intera/intera-frontend/src/crawlers'
-let g:netrw_dirhist_9='/home/phbpx/Development/repos/intera/intera-frontend/src'
-let g:netrw_dirhist_8='/home/phbpx/Development/repos/intera/intera-frontend'
-let g:netrw_dirhist_7='/home/phbpx/Development/repos/intera/intera-frontend/src/utils'
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/phbpx/Development/go/src/github.com/corabank/intera-chat/main'
+let g:netrw_dirhist_2='/home/phbpx/.config/i3'
+let g:netrw_dirhist_1='/home/phbpx/.config/nvim/plugin'
